@@ -1,0 +1,12 @@
+tests:
+  - id: search-kr-ranking-regression
+    description: Compare KR search ranking between Stable and Target
+    request:
+      method: POST
+      path: /v1/search/query
+      body: {
+        "keyword": "게이밍 노트북",
+        "sort": "RELEVANCE",
+        "page": 1,
+        "size": 10
+      }

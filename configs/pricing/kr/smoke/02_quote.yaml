@@ -1,0 +1,22 @@
+tests:
+  - id: pricing-kr-quote-post
+    description: Calculate KR quote
+    request:
+      method: POST
+      path: /v1/pricing/quote
+      body: {
+        "currency": "KRW",
+        "items": [
+          { "sku": "SKU-KR-1001", "quantity": 2 }
+        ],
+        "couponCode": "WELCOME_KR"
+      }
+    expect:
+      status: 200
+      assertions:
+        - path: $.currency
+          op: equals
+          value: KRW
+        - path: $.totalAmount
+          op: gt
+          value: 0

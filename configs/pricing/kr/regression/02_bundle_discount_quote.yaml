@@ -1,0 +1,14 @@
+tests:
+  - id: pricing-kr-bundle-quote-regression
+    description: Compare KR multi-item bundle quote calculation between Stable and Target
+    request:
+      method: POST
+      path: /v1/pricing/quote
+      body: {
+        "currency": "KRW",
+        "items": [
+          { "sku": "SKU-KR-1001", "quantity": 1 },
+          { "sku": "SKU-KR-1002", "quantity": 3 }
+        ],
+        "bundleDiscount": true
+      }

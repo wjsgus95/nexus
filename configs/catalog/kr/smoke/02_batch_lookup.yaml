@@ -1,0 +1,22 @@
+tests:
+  - id: catalog-kr-batch-lookup-post
+    description: Batch lookup KR SKUs
+    request:
+      method: POST
+      path: /v1/catalog/items/batch
+      query:
+        locale: ko_KR
+      body: {
+        "skus": ["SKU-KR-1001", "SKU-KR-1002"],
+        "includeInventory": true,
+        "region": "KR"
+      }
+    expect:
+      status: 200
+      assertions:
+        - path: $.items
+          op: size
+          value: 2
+        - path: $.items[0].currency
+          op: equals
+          value: KRW

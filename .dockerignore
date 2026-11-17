@@ -1,0 +1,7 @@
+.git/
+.gradle/
+build/
+bin/
+reports/
+.vscode/
+.DS_Store

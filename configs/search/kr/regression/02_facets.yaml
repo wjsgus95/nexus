@@ -1,0 +1,9 @@
+tests:
+  - id: search-kr-facets-regression
+    description: Compare KR facet counts between Stable and Target
+    request:
+      method: GET
+      path: /v1/search/facets
+      query:
+        q: 노트북
+        locale: ko_KR

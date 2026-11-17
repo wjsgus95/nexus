@@ -1,0 +1,11 @@
+tests:
+  - id: catalog-kr-filter-regression
+    description: Compare KR filtered catalog POST response
+    request:
+      method: POST
+      path: /v1/catalog/filter
+      body: {
+        "category": "노트북",
+        "inStockOnly": true,
+        "limit": 20
+      }

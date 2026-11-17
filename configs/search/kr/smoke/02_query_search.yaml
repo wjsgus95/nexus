@@ -1,0 +1,23 @@
+tests:
+  - id: search-kr-query-post
+    description: KR search POST
+    request:
+      method: POST
+      path: /v1/search/query
+      body: {
+        "keyword": "게이밍 노트북",
+        "filters": {
+          "brand": ["LG", "Samsung"],
+          "maxPrice": 2500000
+        },
+        "page": 1,
+        "size": 20
+      }
+    expect:
+      status: 200
+      assertions:
+        - path: $.totalHits
+          op: gt
+          value: 0
+        - path: $.results
+          op: notEmpty

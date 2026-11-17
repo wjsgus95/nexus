@@ -1,0 +1,8 @@
+tests:
+  - id: catalog-kr-detail-regression
+    description: Compare KR product detail response between Stable and Target
+    request:
+      method: GET
+      path: /v1/catalog/items/SKU-KR-1001
+      query:
+        locale: ko_KR

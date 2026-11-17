@@ -1,0 +1,9 @@
+tests:
+  - id: search-tw-facets-regression
+    description: Compare TW facet counts between Stable and Target
+    request:
+      method: GET
+      path: /v1/search/facets
+      query:
+        q: 鍵盤
+        locale: zh_TW

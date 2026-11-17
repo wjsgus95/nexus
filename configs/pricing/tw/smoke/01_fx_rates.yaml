@@ -1,0 +1,17 @@
+tests:
+  - id: pricing-tw-fx-rate-get
+    description: Fetch TW currency exchange rate
+    request:
+      method: GET
+      path: /v1/pricing/rates
+      query:
+        currency: TWD
+    expect:
+      status: 200
+      assertions:
+        - path: $.currency
+          op: equals
+          value: TWD
+        - path: $.rate
+          op: gt
+          value: 0

@@ -1,0 +1,14 @@
+tests:
+  - id: search-kr-autocomplete-get
+    description: KR autocomplete query
+    request:
+      method: GET
+      path: /v1/search/suggest
+      query:
+        q: 무선 이어폰
+        limit: "5"
+    expect:
+      status: 200
+      assertions:
+        - path: $.suggestions
+          op: notEmpty

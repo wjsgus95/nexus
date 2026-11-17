@@ -1,0 +1,19 @@
+name: search-tw
+targetUrl: https://search.staging.tw.internal
+stableUrl: https://search.prod.tw.internal
+healthPath: /actuator/health
+
+diffRules:
+  ignoredPaths:
+    - $.request_id
+    - $.timestamp
+    - $.meta.traceId
+    - $.tookMs
+    - $.debugScore
+
+kafka:
+  topic: traffic.search.tw
+  maxMessages: 100
+  timeoutSeconds: 15
+  offsetReset: latest
+  autoNoiseDetection: true

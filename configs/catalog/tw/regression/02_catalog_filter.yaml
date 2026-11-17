@@ -1,0 +1,11 @@
+tests:
+  - id: catalog-tw-filter-regression
+    description: Compare TW filtered catalog POST response
+    request:
+      method: POST
+      path: /v1/catalog/filter
+      body: {
+        "category": "筆電",
+        "inStockOnly": true,
+        "limit": 20
+      }

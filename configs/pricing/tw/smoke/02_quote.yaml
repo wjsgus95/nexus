@@ -1,0 +1,22 @@
+tests:
+  - id: pricing-tw-quote-post
+    description: Calculate TW quote
+    request:
+      method: POST
+      path: /v1/pricing/quote
+      body: {
+        "currency": "TWD",
+        "items": [
+          { "sku": "SKU-TW-2001", "quantity": 2 }
+        ],
+        "couponCode": "WELCOME_TW"
+      }
+    expect:
+      status: 200
+      assertions:
+        - path: $.currency
+          op: equals
+          value: TWD
+        - path: $.totalAmount
+          op: gt
+          value: 0

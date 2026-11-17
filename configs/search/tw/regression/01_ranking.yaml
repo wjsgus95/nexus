@@ -1,0 +1,12 @@
+tests:
+  - id: search-tw-ranking-regression
+    description: Compare TW search ranking between Stable and Target
+    request:
+      method: POST
+      path: /v1/search/query
+      body: {
+        "keyword": "機械鍵盤",
+        "sort": "RELEVANCE",
+        "page": 1,
+        "size": 10
+      }

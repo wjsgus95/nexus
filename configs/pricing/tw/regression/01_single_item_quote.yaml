@@ -1,0 +1,12 @@
+tests:
+  - id: pricing-tw-single-quote-regression
+    description: Compare TW single-item quote calculation between Stable and Target
+    request:
+      method: POST
+      path: /v1/pricing/quote
+      body: {
+        "currency": "TWD",
+        "items": [
+          { "sku": "SKU-TW-2001", "quantity": 1 }
+        ]
+      }

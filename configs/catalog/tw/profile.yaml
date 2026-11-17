@@ -1,0 +1,18 @@
+name: catalog-tw
+targetUrl: https://catalog.staging.tw.internal
+stableUrl: https://catalog.prod.tw.internal
+healthPath: /actuator/health
+
+diffRules:
+  ignoredPaths:
+    - $.request_id
+    - $.timestamp
+    - $.meta.traceId
+    - $.data.cacheAgeMs
+
+kafka:
+  topic: traffic.catalog.tw
+  maxMessages: 100
+  timeoutSeconds: 15
+  offsetReset: latest
+  autoNoiseDetection: true

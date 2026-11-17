@@ -1,0 +1,19 @@
+name: search-kr
+targetUrl: https://search.staging.kr.internal
+stableUrl: https://search.prod.kr.internal
+healthPath: /actuator/health
+
+diffRules:
+  ignoredPaths:
+    - $.request_id
+    - $.timestamp
+    - $.meta.traceId
+    - $.tookMs
+    - $.debugScore
+
+kafka:
+  topic: traffic.search.kr
+  maxMessages: 100
+  timeoutSeconds: 15
+  offsetReset: latest
+  autoNoiseDetection: true

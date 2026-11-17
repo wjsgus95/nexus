@@ -1,0 +1,23 @@
+tests:
+  - id: search-tw-query-post
+    description: TW search POST
+    request:
+      method: POST
+      path: /v1/search/query
+      body: {
+        "keyword": "機械鍵盤",
+        "filters": {
+          "brand": ["Logitech", "ASUS"],
+          "maxPrice": 8000
+        },
+        "page": 1,
+        "size": 20
+      }
+    expect:
+      status: 200
+      assertions:
+        - path: $.totalHits
+          op: gt
+          value: 0
+        - path: $.results
+          op: notEmpty

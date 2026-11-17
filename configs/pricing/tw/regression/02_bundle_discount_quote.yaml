@@ -1,0 +1,14 @@
+tests:
+  - id: pricing-tw-bundle-quote-regression
+    description: Compare TW multi-item bundle quote calculation between Stable and Target
+    request:
+      method: POST
+      path: /v1/pricing/quote
+      body: {
+        "currency": "TWD",
+        "items": [
+          { "sku": "SKU-TW-2001", "quantity": 2 },
+          { "sku": "SKU-TW-2002", "quantity": 1 }
+        ],
+        "bundleDiscount": true
+      }

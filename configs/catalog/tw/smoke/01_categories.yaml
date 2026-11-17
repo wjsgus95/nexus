@@ -1,0 +1,17 @@
+tests:
+  - id: catalog-tw-categories-get
+    description: Fetch TW catalog categories
+    request:
+      method: GET
+      path: /v1/catalog/categories
+      query:
+        locale: zh_TW
+        category: 筆電
+    expect:
+      status: 200
+      assertions:
+        - path: $.status
+          op: equals
+          value: OK
+        - path: $.categories
+          op: notEmpty

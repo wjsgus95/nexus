@@ -1,0 +1,19 @@
+tests:
+  - id: catalog-tw-batch-lookup-post
+    description: Batch lookup TW SKUs
+    request:
+      method: POST
+      path: /v1/catalog/items/batch
+      query:
+        locale: zh_TW
+      body: {
+        "skus": ["SKU-TW-2001"],
+        "includeInventory": true,
+        "region": "TW"
+      }
+    expect:
+      status: 200
+      assertions:
+        - path: $.items[0].currency
+          op: equals
+          value: TWD

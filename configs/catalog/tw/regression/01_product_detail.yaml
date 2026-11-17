@@ -1,0 +1,8 @@
+tests:
+  - id: catalog-tw-detail-regression
+    description: Compare TW product detail response between Stable and Target
+    request:
+      method: GET
+      path: /v1/catalog/items/SKU-TW-2001
+      query:
+        locale: zh_TW
